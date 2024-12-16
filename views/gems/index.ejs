@@ -1,0 +1,33 @@
+<% layout('layouts/boilerplate')%>
+
+<i>
+  <center><h1 class="text-black-50">All HiddenGems</h1></center>
+</i>
+<div>
+  <!-- <a class="text-light" href="/gems/new">Add Hiddengems</a> -->
+</div>
+<% for (let gem of gems){%>
+<div class="card mb-3 h-30">
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="img-fluid mb-2 mt-2 mr-2 ml-2"
+        alt=""
+        src="<%=gem.images[0] ? gem.images[0].url : `https://images.unsplash.com/photo-1468245856972-a0333f3f8293?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80`%>"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= gem.title %></h5>
+        <p class="card-text"><%= gem.description %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= gem.location%></small>
+        </p>
+        <a class="btn btn-primary" href="/gems/<%=gem._id%>"
+          >View <%=gem.title%></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<% }%>
